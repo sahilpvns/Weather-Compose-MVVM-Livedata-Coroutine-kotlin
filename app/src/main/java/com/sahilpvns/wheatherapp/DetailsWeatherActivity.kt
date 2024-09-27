@@ -45,11 +45,11 @@ fun WeatherDetailsScreen(weatherDetailsResponse: WeatherDetailsResponse?) {
 
 @Composable
 fun WeatherDetailsScreen(it: DailyForecast) {
-    Card(modifier = Modifier.fillMaxWidth(). padding(8.dp)) {
+    Card(modifier = Modifier.fillMaxWidth().padding(8.dp)) {
         Column(Modifier.padding(8.dp)) {
             Text(text = it.Date)
-            Text(text = "Max Value: " +it.Temperature.Maximum.Value.toString())
-            Text(text = "Min Value: " +it.Temperature.Minimum.Value.toString())
+            Text(text = "Max Value: ${it.Temperature.Maximum.Value}")
+            Text(text = "Min Value: ${it.Temperature.Minimum.Value}")
             Text(text = it.Day.IconPhrase)
             Text(text = it.Night.IconPhrase)
         }

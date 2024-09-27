@@ -9,7 +9,7 @@ class WeatherRepository {
         return apiService.getCities(query = query)
     }
 
-    suspend fun getWeather(locationKey: String): WheatherDetailsResponse {
+    suspend fun getWeather(locationKey: String): WeatherDetailsResponse {
         return apiService.getWeather(locationKey = locationKey)
     }
 

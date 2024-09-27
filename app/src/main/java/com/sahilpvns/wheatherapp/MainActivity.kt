@@ -25,7 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 class MainActivity : ComponentActivity() {
-    private val viewModel: WheatherViewModel by viewModels()
+    private val viewModel: WeatherViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun WeatherData(
-    weatherResponse: List<WeatherResponseItem>, viewModel: WheatherViewModel, error: String?
+    weatherResponse: List<WeatherResponseItem>, viewModel: WeatherViewModel, error: String?
 ) {
     Column {
         SearchScreen(viewModel)
@@ -56,7 +56,7 @@ fun WeatherData(
 }
 
 @Composable
-fun SearchScreen(viewModel: WheatherViewModel) {
+fun SearchScreen(viewModel: WeatherViewModel) {
     var searchText by remember { mutableStateOf("") }
     OutlinedTextField(
         value = searchText,

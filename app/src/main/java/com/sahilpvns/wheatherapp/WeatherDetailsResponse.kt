@@ -1,6 +1,6 @@
 package com.sahilpvns.wheatherapp
 
-data class WheatherDetailsResponse(
+data class WeatherDetailsResponse(
     val Headline: Headline,
     val DailyForecasts: List<DailyForecast>
 )

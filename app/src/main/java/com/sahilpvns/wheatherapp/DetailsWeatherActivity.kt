@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 
 class DetailsWeatherActivity : ComponentActivity() {
 
-    private val viewModel: WheatherViewModel by viewModels()
+    private val viewModel: WeatherViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -32,7 +32,7 @@ class DetailsWeatherActivity : ComponentActivity() {
 }
 
 @Composable
-fun WeatherDetailsScreen(weatherDetailsResponse: WheatherDetailsResponse?) {
+fun WeatherDetailsScreen(weatherDetailsResponse: WeatherDetailsResponse?) {
     LazyColumn {
         items(weatherDetailsResponse?.DailyForecasts ?: emptyList()) {
             WeatherDetailsScreen(it)

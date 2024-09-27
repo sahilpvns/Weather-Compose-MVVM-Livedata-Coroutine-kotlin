@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
-class WheatherViewModel: ViewModel() {
+class WeatherViewModel: ViewModel() {
     private val repository = WeatherRepository()
 
     private val _error = MutableLiveData<String>()
@@ -19,24 +19,24 @@ class WheatherViewModel: ViewModel() {
         viewModelScope.launch {
             try {
                 val response = repository.getCities(query)
-                    _cities.postValue(response)
+                _cities.value = response
             } catch (e: Exception) {
-                _error.postValue(e.message)
+                _error.value = e.message
             }
 
         }
     }
 
-    private val _weather = MutableLiveData<WheatherDetailsResponse>()
-    val weather: LiveData<WheatherDetailsResponse> = _weather
+    private val _weather = MutableLiveData<WeatherDetailsResponse>()
+    val weather: LiveData<WeatherDetailsResponse> = _weather
 
     fun getWeather(locationKey: String) {
         viewModelScope.launch {
             try {
                 val weather = repository.getWeather(locationKey)
-                _weather.postValue(weather)
+                _weather.value = weather
             } catch (e: Exception) {
-                _error.postValue(e.message)
+                _error.value = e.message
             }
         }
     }

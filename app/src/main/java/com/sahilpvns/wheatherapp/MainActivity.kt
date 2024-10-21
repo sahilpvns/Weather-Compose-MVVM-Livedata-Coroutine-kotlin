@@ -37,17 +37,13 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun WeatherData(
-    weatherResponse: List<WeatherResponseItem>, viewModel: WeatherViewModel, error: String?
-) {
+fun WeatherData(weatherResponse: List<WeatherResponseItem>, viewModel: WeatherViewModel, error: String?) {
     Column {
         SearchScreen(viewModel)
         WeatherApp(weatherResponse)
         Text(
             text = error ?: "",
-            modifier = Modifier
-                .padding(8.dp)
-                .fillMaxWidth(),
+            modifier = Modifier.padding(8.dp).fillMaxWidth(),
             color = androidx.compose.ui.graphics.Color.Red,
             fontWeight = FontWeight.Bold
         )
@@ -65,11 +61,8 @@ fun SearchScreen(viewModel: WeatherViewModel) {
             viewModel.getCities(searchText)
         },
         label = { Text(text = "Search City") },
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp),
+        modifier = Modifier.fillMaxWidth().padding(8.dp),
         singleLine = true
-
     )
 }
 
@@ -86,9 +79,7 @@ fun WeatherApp(weatherResponse: List<WeatherResponseItem>) {
 @Composable
 fun WeatherListData(weatherResponseItem: WeatherResponseItem) {
     val context = LocalContext.current
-    Card(modifier = Modifier
-        .fillMaxWidth()
-        .padding(8.dp), onClick = {
+    Card(modifier = Modifier.fillMaxWidth().padding(8.dp), onClick = {
         val intent = Intent(context, DetailsWeatherActivity::class.java).apply {
             putExtra("locationKey", weatherResponseItem.Key)
         }
